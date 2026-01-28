@@ -43,17 +43,19 @@ __version__ = "1.1.1"
 
 gettext.bindtextdomain("virt-bootstrap", "/usr/share/locale")
 gettext.textdomain("virt-bootstrap")
+
+# For Python 2, codeset parameter was required. For Python 3, it was deprecated/removed.
+extra_args = {}
+if sys.version_info[0] < 3:
+    extra_args['codeset'] = 'utf-8'
+
 try:
     gettext.install("virt-bootstrap",
-                    localedir="/usr/share/locale")
+                    localedir="/usr/share/locale",
+                    **extra_args)
 except IOError:
-    try:
-        import __builtin__
-        # pylint: disable=undefined-variable
-        __builtin__.__dict__['_'] = unicode
-    except ImportError:
-        import builtin
-        builtin.__dict__['_'] = str
+    import builtins
+    builtins.__dict__['_'] = unicode if 'unicode' in builtins.__dict__ else str
 
 # pylint: disable=invalid-name
 # Create logger

@@ -5,6 +5,13 @@ It allows to use either a tarball containing the file system or
 an image on a docker registry and unpacks it either as a folder
 or in a qcow2 image with backing chains to mimic the docker layers.
 
+Installation
+------------
+
+With [uv](https://github.com/astral-sh/uv):
+
+    uv tool install --from=git+https://github.com/virt-sandbox/virt-bootstrap.git virt-bootstrap
+
 Dependencies
 ------------
 
