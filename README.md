@@ -10,7 +10,7 @@ Installation
 
 With [uv](https://github.com/astral-sh/uv):
 
-    uv tool install --from=git+https://github.com/virt-sandbox/virt-bootstrap.git virt-bootstrap
+    uv tool install --from=git+git@github.com:lee-b/virt-bootstrap-fixes.git virt-bootstrap
 
 Dependencies
 ------------
